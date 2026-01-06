@@ -213,6 +213,14 @@ Each message has a **tag** like `success`, `error`, etc.
 <div class="{{ message.tags }}">{{ message }}</div>
 {% endfor %}
 ```
+```
+  {% if messages %}
+                                    {% for message in messages %}
+                                        <div class="alert {% if message.tags == 'success' %}alert-success {% elif message.tags == 'error' %}alert-danger {% elif message.tags == 'warning' %}alert-warning {% elif message.tags == 'info' %}alert-info {% elif message.tags == 'debug' %}alert-secondary {% else %}alert-primary {% endif %}"
+                                             role="alert">{{ message }}</div>
+                                    {% endfor %}
+                                {% endif %}
+```
 
 ### CSS Example
 
